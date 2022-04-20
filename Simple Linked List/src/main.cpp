@@ -13,7 +13,7 @@ int main()
 	list.remove(1);     // 7, 6, 2, 3, 4
 	list.insertTail(2); // 7, 6, 2, 3, 4, 2
 	list.remove(5);     // 7, 6, 2, 3, 4, 2
-	 // 7, 6, 2, 3, 4, 2
+	// 7, 6, 2, 3, 4, 2
 	std::cout << list;
 	system("pause");
 }
