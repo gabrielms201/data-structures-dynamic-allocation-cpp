@@ -2,7 +2,9 @@
 #include <string>
 #include <sstream>
 #include <ostream>
-
+#ifdef __GNUC__
+	#define nullptr 0
+#endif
 
 typedef int TYPE;
 class Node 
