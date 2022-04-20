@@ -1,8 +1,8 @@
 #include "List.h"
 
 // Node Implementation
-Node::Node(TYPE data, Node* _nextNode)
-	: _data(data), _nextNode(_nextNode) {}
+Node::Node(TYPE data, Node* nextNode)
+	: _data(data), _nextNode(nextNode) {}
 
 Node::~Node() {}
 

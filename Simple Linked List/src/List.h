@@ -8,7 +8,7 @@ typedef int TYPE;
 class Node 
 {
 public:
-	Node(TYPE data, Node* _nextNode);
+	Node(TYPE data, Node* nextNode);
 	~Node();
 	TYPE getData() const { return _data; }
 	Node* getNextNode() const { return _nextNode; }
