@@ -32,9 +32,11 @@ public:
 	bool insertTail(const TYPE data);
 	bool find(const TYPE data) const;
 	bool remove(const TYPE data);
+	unsigned int getSize() const { return _size; }
 	std::string toString(const bool formated = false) const;
 
 private:
+	unsigned int _size;
 	Node* _head;
 };
 inline std::ostream& operator <<(std::ostream& str, const List& list) 

@@ -1,7 +1,10 @@
 #include "List.h"
 #include <iostream>
 
-int main()
+
+
+
+void sample() 
 {
 	List list = List();
 	list.insertTail(1); // 1
@@ -14,6 +17,12 @@ int main()
 	list.insertTail(2); // 7, 6, 2, 3, 4, 2
 	list.remove(5);     // 7, 6, 2, 3, 4, 2
 	// 7, 6, 2, 3, 4, 2
-	std::cout << list;
+	std::cout << list << std::endl;
+	std::cout << list.getSize();
 	system("pause");
+}
+int main()
+{
+	sample();
+	std::cout << "dasojkdsa";
 }

@@ -11,10 +11,19 @@ Node::~Node() {}
 List::List()
 {
 	_head = nullptr;
+	_size = 0;
 }
 
 List::~List()
 {
+	while (!isEmpty())
+	{
+		Node* ptr = _head;
+		_head = ptr->getNextNode();
+		delete ptr;
+		_size--;
+	}
+	delete _head;
 }
 
 bool List::isEmpty() const
@@ -32,6 +41,7 @@ bool List::insertHead(const TYPE data)
 	Node* node = new Node(data, nullptr);
 	node->setNextNode(_head);
 	_head = node;
+	_size++;
 	return true;
 }
 
@@ -41,6 +51,7 @@ bool List::insertTail(const TYPE data)
 	if (isEmpty())
 	{
 		_head = node;
+		_size++;
 		return true;
 	}
 	Node* ptr = _head;
@@ -49,6 +60,7 @@ bool List::insertTail(const TYPE data)
 		ptr = ptr->getNextNode();
 	}
 	ptr->setNextNode(node);
+	_size++;
 	return true;
 	
 }
@@ -92,6 +104,7 @@ bool List::remove(const TYPE data)
 	{
 		_head = ptr->getNextNode();
 		delete ptr;
+		_size--;
 		return true;
 	}
 	// If it's not the case, we walk till we find (or not) the given data
@@ -108,6 +121,7 @@ bool List::remove(const TYPE data)
 	}
 	// If we found, we just point the previous node to the next of the one we want to remove
 	bkpPtr->setNextNode(ptr->getNextNode());
+	_size--;
 	delete ptr;
 }
 
