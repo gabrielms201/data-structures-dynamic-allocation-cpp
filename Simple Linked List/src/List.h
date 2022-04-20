@@ -3,7 +3,7 @@
 #include <sstream>
 #include <ostream>
 #ifdef __GNUC__
-	#define nullptr 0
+	#define nullptr NULL
 #endif
 
 typedef int TYPE;
