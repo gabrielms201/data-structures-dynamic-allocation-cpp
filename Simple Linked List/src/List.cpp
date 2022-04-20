@@ -17,12 +17,12 @@ List::~List()
 {
 }
 
-bool List::isEmpty()
+bool List::isEmpty() const
 {
 	return _head == nullptr;
 }
 
-bool List::isFull()
+bool List::isFull() const
 {
 	return false;
 }
@@ -53,7 +53,7 @@ bool List::insertTail(const TYPE data)
 	
 }
 
-bool List::find(const TYPE data)
+bool List::find(const TYPE data) const
 {
 	if (isEmpty())
 	{
@@ -111,7 +111,26 @@ bool List::remove(const TYPE data)
 	delete ptr;
 }
 
-std::string List::toString()
+std::string List::toString(const bool formated) const
 {
-	return std::string();
+	if (isEmpty()) 
+	{
+		return "null";
+	}
+	std::stringstream ss;
+	Node* ptr = _head;
+	// If there's more than one element:
+	while (ptr->getNextNode() != nullptr)
+	{
+		ss << ptr->getData();
+		if (formated) 
+		{
+			ss << ", ";
+		}
+		ptr = ptr->getNextNode();
+	}
+	// For the last node:
+	ss << ptr->getData();
+
+	return ss.str();
 }

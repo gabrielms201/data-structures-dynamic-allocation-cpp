@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <sstream>
+#include <ostream>
 
 
 typedef int TYPE;
@@ -23,14 +24,18 @@ class List
 public:
 	List();
 	~List();
-	bool isEmpty();
-	bool isFull();
+	bool isEmpty() const;
+	bool isFull() const;
 	bool insertHead(const TYPE data);
 	bool insertTail(const TYPE data);
-	bool find(const TYPE data);
+	bool find(const TYPE data) const;
 	bool remove(const TYPE data);
-	std::string toString();
+	std::string toString(const bool formated = false) const;
 
 private:
 	Node* _head;
 };
+inline std::ostream& operator <<(std::ostream& str, const List& list) 
+{
+	return str << list.toString(true);
+}
